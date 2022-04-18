@@ -20,10 +20,9 @@ const Icons = styled.div`
     left: 2rem;
     z-index:1;
 `;
-const Line = styled.span`
+const Line = styled(motion.span)`
     width: 2px;
-    height:8rem;
-    background-color:${props => props.background>700?'#fff':'#000'};
+    background-color:${props => props.wz>700?'#fff':'#000'};
 `;
 const IconStyle = styled.div`
  color: ${props => props.color>700?'#fff':'#000'};
@@ -45,21 +44,35 @@ export const SocialIcons = () => {
     <Icons>
             <NavLink to="/redirectLinkedin"  target="_blank">
                 <IconStyle color={widthSize}>
-                <motion.div whileHover={{scale:1.1}}
-                                whileTap={{scale:.9}}>
+                <motion.div 
+                initial={{transform:"scale(0)"}}
+                animate={{scale:[0,1]}}
+                transition={{type:'spring',duration:.8, delay:2.9}}
+                whileHover={{scale:1.1}}
+                whileTap={{scale:.9}}
+                >
                     <BsLinkedin className="style-icon"/>
                 </motion.div>
                 </IconStyle>
             </NavLink>
             <NavLink to="/redirectGitHub"  target="_blank">
                 <IconStyle color={widthSize}>
-                <motion.div whileHover={{scale:1.1}}
-                                whileTap={{scale:.9}}>
+                <motion.div
+                initial={{transform:"scale(0)"}}
+                animate={{scale:[0,1]}}
+                transition={{type:'spring',duration:.8, delay:2.5}} 
+                whileHover={{scale:1.1}}
+                whileTap={{scale:.9}}
+                >
                     <BsGithub className="style-icon"/>
                 </motion.div>
                 </IconStyle>
             </NavLink> 
-        <Line background={widthSize}/>
+        <Line wz={widthSize} 
+        initial={{height:0}}
+        animate={{height:widthSize>700?'8rem':'6rem'}}
+        transition={{type:'spring', duration:1.5, delay:2}}
+        />
     </Icons>
   )
 }

@@ -32,7 +32,7 @@ const MainContainer = styled.div `
 `;
 
 const Container = styled.div`
-padding:2rem;
+    padding:1rem;
 `
 
 const Contact = styled.div `
@@ -94,7 +94,7 @@ const DarkDivHorizontal = styled.div`
     width: 100%;
     height: 0;
     z-index: 1;
-    animation: example .5s forwards;
+    animation: example 1.5s forwards;
 
     @keyframes example {
         from {height: 0%;}
@@ -113,12 +113,24 @@ export const Main = () => {
         <MainContainer>
             {widthSize>700?<DarkDivVertical/> :<DarkDivHorizontal/>}
                 <Container>
-                    <LogoComponent/>
+                        <LogoComponent/>
                     <SocialIcons/>
                         <Link to="">
                             <Contact color={widthSize}>
-                            <motion.h2 whileHover={{scale:1.1}}
-                                whileTap={{scale:.9}}>        
+                            <motion.h2 
+                                initial={{
+                                    x:200,
+                                }}
+
+                                animate={{
+                                    x:0,
+                                    transition: {type:'spring',duration:1.5,delay:.8}
+                                }}
+
+                                whileHover={{scale:1.1}}
+                                whileTap={{scale:.9}}
+
+                                >        
                                     <BsWhatsapp className="style-icon"/>
                             </motion.h2>
                             </Contact>        
@@ -126,16 +138,37 @@ export const Main = () => {
                         <Intro/>
                         <Link to="/me">
                             <About color={widthSize}>
-                                    <motion.h2 whileHover={{scale:1.1}}
+                                    <motion.h2 
+                                        initial={{
+                                            y:200,
+                                        }}
+                                        animate={{
+                                            y:0,
+                                            transition: {type:'spring',duration:1.5,delay:1}
+                                        }}
+        
+
+                                        whileHover={{scale:1.1}}
                                         whileTap={{scale:.9}}>
-                                        About
+                                        Skills
                                     </motion.h2>
                             </About>
                         </Link>
                         <Skills color={widthSize}>
-                            <motion.h2 whileHover={{scale:1.1}} 
+                            <motion.h2 
+
+                                initial={{
+                                    y:200,
+                                }}
+                                animate={{
+                                    y:0,
+                                    transition: {type:'spring',duration:1.5,delay:1}
+                                }}
+
+
+                                whileHover={{scale:1.1}} 
                                 whileTap={{scale:.9}}>
-                                Skills
+                                Work
                             </motion.h2>
                         </Skills>
                 </Container>
