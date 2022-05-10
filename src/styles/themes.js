@@ -6,7 +6,8 @@ export const lightTheme = {
     textRgba:"0,0,0",
     fontDancing: "'Dancing Script', cursive",
     fontRoboto: "'Roboto', sans-serif",
-    fontRobotoSlab: "'Roboto Slab', serif"
+    fontRobotoSlab: "'Roboto Slab', serif",
+    fontQuick:'Quicksand, sans-serif', 
 }
 
 export const darkTheme = {

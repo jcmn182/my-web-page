@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-
 //hooks
-
 import {useSizeScreen} from '../hooks/useSizeScreen.js';
-
 //motion
 import {motion} from 'framer-motion';
+//redux
+import { useSelector } from 'react-redux';
 
 const Box = styled(motion.div)`
 
@@ -103,11 +102,11 @@ const Text = styled.div `
 
 export const Intro = () => {
 
+    const {englishOn} = useSelector((state) => state.changing);
+
     const { widthSize } = useSizeScreen()
 
-  return (
-
-    
+return ( 
 <Box>
    <motion.dev className={widthSize>700?"desktop-box":"mobile-box"} initial={{height:0}} animate={widthSize>700?{height:'55vh'}:{height:'90vh'}} transition={{type:'spring', duration:2, delay:1.5}}>
         <SubBox position={"static"} >
@@ -122,18 +121,21 @@ export const Intro = () => {
                 }}
 
                 >
-                    <p> <span className="txt-one">Hi!</span><br/>
-                    <span className="txt-two">I'm Juan Carlos</span><br/>
-                    <span > I'm front end developer</span></p>
+                    <p> <span className="txt-one">
+                        {englishOn?"Hi!":"Hola!"}
+                    </span><br/>
+                    <span className="txt-two">{englishOn?"I'm Juan Carlos":"Soy Juan Carlos"}</span><br/>
+                    <span > {englishOn?"I'm front end developer":"Desarrollador web"}</span></p>
                 </motion.div>
             </Text>
         </SubBox>
         <SubBox>
                 <Text color={"black"} widthsize={widthSize}>
                     <motion.dev initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2, delay:2}}>
-                        <p><span className="txt-three">Interested in working<br/>
-                        together?</span><br/>
-                        Let's have a talk</p>
+                        <p><span className="txt-three">
+                            {englishOn?"Interested in working":"Interesado en trabajar"}<br/>
+                        {englishOn?"together?":"juntos?"}</span><br/>
+                        {englishOn?"Let's have a talk":"Hablemos!"}</p>
                     </motion.dev>     
                 </Text>
         </SubBox>

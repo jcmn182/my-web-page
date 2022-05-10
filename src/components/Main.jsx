@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {LogoComponent} from './subcomponents/LogoComponent.jsx';
 import {SocialIcons} from './subcomponents/SocialIcons.jsx';
 import {Intro} from './Intro.jsx';
+import {ToggleLanjuageComponent} from '../components/ToggleLanjuageComponent.jsx';
 
 // react router dom
 import {Link} from 'react-router-dom';
@@ -16,6 +17,10 @@ import {useSizeScreen} from '../hooks/useSizeScreen';
 
 //motion
 import {motion} from 'framer-motion';
+
+//redux
+import { useSelector } from 'react-redux';
+
 
 
 const MainContainer = styled.div `
@@ -55,6 +60,7 @@ const About = styled.div `
     position: absolute;
     cursor: pointer;
     bottom: 2.5rem;
+    font-size:calc(.7em + .1vw);
     z-index:3;
 `;
 
@@ -64,6 +70,7 @@ const Skills = styled.div `
     position: absolute;
     left: 25%;
     bottom: 2.5rem;
+    font-size:calc(.7em + .1vw);
     z-index:3;
 `;
 
@@ -105,17 +112,18 @@ const DarkDivHorizontal = styled.div`
 
 export const Main = () => {
 
-    const {widthSize} = useSizeScreen();
+    const {englishOn} = useSelector((state) => state.changing);
 
-    console.log(widthSize)
+    const {widthSize} = useSizeScreen();
 
     return (
         <MainContainer>
             {widthSize>700?<DarkDivVertical/> :<DarkDivHorizontal/>}
                 <Container>
                         <LogoComponent/>
-                    <SocialIcons/>
-                        <Link to="">
+                        <SocialIcons/>
+                        {englishOn?
+                        <Link to="/redirectWpEnglish" target="_blank">
                             <Contact color={widthSize}>
                             <motion.h2 
                                 initial={{
@@ -134,9 +142,32 @@ export const Main = () => {
                                     <BsWhatsapp className="style-icon"/>
                             </motion.h2>
                             </Contact>        
-                        </Link>
+                        </Link>:
+                        <Link to="/redirectWpSpanish" target="_blank">
+                        <Contact color={widthSize}>
+                        <motion.h2 
+                            initial={{
+                                x:200,
+                            }}
+
+                            animate={{
+                                x:0,
+                                transition: {type:'spring',duration:1.5,delay:.8}
+                            }}
+
+                            whileHover={{scale:1.1}}
+                            whileTap={{scale:.9}}
+
+                            >        
+                                <BsWhatsapp className="style-icon"/>
+                        </motion.h2>
+                        </Contact>        
+                    </Link>
+                        }
+                        <ToggleLanjuageComponent/>
                         <Intro/>
-                        <Link to="/me">
+
+                        <Link to="me/skills">
                             <About color={widthSize}>
                                     <motion.h2 
                                         initial={{
@@ -150,13 +181,13 @@ export const Main = () => {
 
                                         whileHover={{scale:1.1}}
                                         whileTap={{scale:.9}}>
-                                        Skills
+                                         {englishOn?"Skills":"Habilidades"}
                                     </motion.h2>
                             </About>
                         </Link>
+                    <Link to="/work/portfolio">
                         <Skills color={widthSize}>
                             <motion.h2 
-
                                 initial={{
                                     y:200,
                                 }}
@@ -164,13 +195,12 @@ export const Main = () => {
                                     y:0,
                                     transition: {type:'spring',duration:1.5,delay:1}
                                 }}
-
-
                                 whileHover={{scale:1.1}} 
                                 whileTap={{scale:.9}}>
-                                Work
+                                {englishOn?"Portfolio":"Portafolio"}
                             </motion.h2>
                         </Skills>
+                    </Link>    
                 </Container>
         </MainContainer> 
     )

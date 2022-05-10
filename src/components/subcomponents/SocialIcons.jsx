@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 // icons
 import {BsLinkedin,BsGithub} from 'react-icons/bs';
 //styled
@@ -34,15 +34,13 @@ const IconStyle = styled.div`
  }
 `;
 
-
-
 export const SocialIcons = () => {
 
    const {widthSize} = useSizeScreen();
 
   return (
     <Icons>
-            <NavLink to="/redirectLinkedin"  target="_blank">
+            <Link to="/redirectLinkedin"  target="_blank">
                 <IconStyle color={widthSize}>
                 <motion.div 
                 initial={{transform:"scale(0)"}}
@@ -54,8 +52,8 @@ export const SocialIcons = () => {
                     <BsLinkedin className="style-icon"/>
                 </motion.div>
                 </IconStyle>
-            </NavLink>
-            <NavLink to="/redirectGitHub"  target="_blank">
+            </Link>
+            <Link to="/redirectGitHub"  target="_blank">
                 <IconStyle color={widthSize}>
                 <motion.div
                 initial={{transform:"scale(0)"}}
@@ -67,7 +65,7 @@ export const SocialIcons = () => {
                     <BsGithub className="style-icon"/>
                 </motion.div>
                 </IconStyle>
-            </NavLink> 
+            </Link> 
         <Line wz={widthSize} 
         initial={{height:0}}
         animate={{height:widthSize>700?'8rem':'6rem'}}
