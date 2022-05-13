@@ -5,7 +5,7 @@ import {useState} from 'react';
 //hooks
 import {useSizeScreen} from '../hooks/useSizeScreen';
 //redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {spa,eng} from '../redux/features/changingLanguageSlice';
 //motion
 import {motion} from 'framer-motion';
@@ -82,8 +82,6 @@ input:checked + div::before {
     export const ToggleLanjuageComponent = () => {
 
         const dispatch = useDispatch();
-
-        const {englishOn} = useSelector((state) => state.changing);
 
         const [toggle, setToggle] = useState(false);
 

@@ -117,11 +117,8 @@ export const Portfolio = () => {
                 animate={{ x:0, transition: {type:'spring',duration:2,delay:2} }}>
                     <Title>{englishOn?"Sites":"Sitios"}</Title>
                     <Text>
-                        lorem ipsum dolor sit amet, consectetur adipiscing el
-                        lorem ipsum dolor sit amet, consectetur adipiscing el
-                        lorem ipsum dolor sit amet, consectetur adipiscing el
-                        lorem ipsum dolor sit amet, consectetur adipiscing el
-                        lorem ipsum dolor sit amet, consectetur adipiscing el
+                        {englishOn?
+                        ``:`Esto es algo de lo mucho en lo que puedo trabajar y construir, si tienes alguna duda puedes contactarme!`}
                     </Text>
                 </CardTextContainer>
                 <motion.div initial={{ x:800 }}
