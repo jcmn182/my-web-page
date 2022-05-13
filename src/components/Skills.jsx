@@ -25,7 +25,6 @@ const SkillsContainer = styled.div `
 const BoxDesktop = styled.div`
     width: 100vw;
     height: 100vh;
-    position: relative;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -35,7 +34,6 @@ const BoxDesktop = styled.div`
 const BoxMovile = styled.div`
     width: 100vw;
     height: 100%;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -15,6 +15,12 @@ import {Redirect} from './components/Redirect.jsx';
 
 function App() {
 
+  const urlEcommerce = "https://wonderful-profiterole-5aa79c.netlify.app/";
+
+  const urlAppWeather = "https://jolly-noyce-f9ec52.netlify.app/";
+
+  const urlUIpinterest = "https://scintillating-liger-954891.netlify.app/";
+
   const urlGitHub = "https://github.com/jcmn182";
 
   const urlLinkedin = "https://www.linkedin.com/in/juan-carlos-macias-najera-317aa321b/";
@@ -41,6 +47,9 @@ function App() {
               <Route path="/redirectCvEnglish" element={<Redirect url={ urlCvEnlgish } />} />
               <Route path="/redirectWpEnglish" element={<Redirect url={ urlEnglishWhatsApp } />} />
               <Route path="/redirectWpSpanish" element={<Redirect url={ urlSpanishWhatsApp } />} />
+              <Route path="/redirectEcommerce" element={<Redirect url={ urlEcommerce } />} />
+              <Route path="/redirectAppWeather" element={<Redirect url={ urlAppWeather } />} />
+              <Route path="/redirectPinterest" element={<Redirect url={ urlUIpinterest } />} />
           </Routes>
       </ThemeProvider>
     </div>
