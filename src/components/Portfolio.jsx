@@ -118,7 +118,11 @@ export const Portfolio = () => {
                     <Title>{englishOn?"Sites":"Sitios"}</Title>
                     <Text>
                         {englishOn?
-                        ``:`Esto es algo de lo mucho en lo que puedo trabajar y construir, si tienes alguna duda puedes contactarme!`}
+                        `If you want to see some projects you can find them here , 
+                            if you have any questions feel free to contact me `
+                        :
+                        `si quieres ver algunos proyectos puedes encontrarlos aquí , 
+                        si tienes alguna pregunta no dudes en contactar conmigo`}
                     </Text>
                 </CardTextContainer>
                 <motion.div initial={{ x:800 }}
